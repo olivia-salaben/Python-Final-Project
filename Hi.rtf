@@ -40,17 +40,27 @@ canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief
 
 title1 = top.title("Hangman")
 
-topLabel = canvas.create_text((300, 45), text="Hangman: Guess the Word", font = ("arial", 30))
+topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
 
+def game():
+   line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
+   line2 = canvas.create_line(200, 500, 400, 500)
+   label1 = canvas.create_text((300, 50), text = "Guess a Letter:", font = ("arial", 20))
+   E = Entry(canvas)
+   canvas.create_window(300, 100, window = E)
+   canvas.update()
+   top.mainloop()
+   
 
 def start():
    canvas.delete("all")
    startButton.destroy()
+   game()
+   
 startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
 
 
-def game():
-   game
+
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
 line2 = canvas.create_line(200, 500, 400, 500)
 head = canvas.create_oval(130, 200, 170, 250)
@@ -61,6 +71,8 @@ leg1 = canvas.create_line(120, 450, 150, 400)
 leg2 = canvas.create_line(180, 450, 150, 400)
 foot1 = canvas.create_line(180, 450, 200, 450)
 foot2 = canvas.create_line(120, 450, 100, 450)
+
+   
 
 startButton.pack()
 canvas.pack() 

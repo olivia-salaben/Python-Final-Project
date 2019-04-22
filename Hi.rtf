@@ -3,10 +3,13 @@ import random
 import tkinter.messagebox
 from tkinter import Button
 
+''''''''''''
 easyWords = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination"]
 mediumWords = ["whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod"]
 hardWords = ["friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing",]
 
+ words = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination", "whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod","friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing"] 
+ 
 def setting():
    wordChoice = ' '
    
@@ -20,14 +23,17 @@ def setting():
    if difficulty = 'hard':
       wordChoice = hardWords.random
       print('You have selected hard! Start guessing now.')
-      
-def game():
+     
    
 
 
 
 chances = 10
 word = ("_"*len(randomWord))
+
+
+'''''''''''''''
+
 
 top = tkinter.Tk()
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)

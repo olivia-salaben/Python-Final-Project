@@ -35,10 +35,11 @@ canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief
 title1 = top.title("Hangman")
 
 topLabel = canvas.create_text((300, 45), text="Hangman: Guess the Word", font = ("arial", 30))
-canvas2 = tkinter.Canvas(top, height = 700, width = 600, bg = "white", relief = RAISED)
+
 
 def start():
-   canvas2
+   canvas.delete("all")
+   startButton.destroy()
 startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
 
 
@@ -56,11 +57,9 @@ foot1 = canvas.create_line(180, 450, 200, 450)
 foot2 = canvas.create_line(120, 450, 100, 450)
 
 startButton.pack()
-canvas2.pack()
 canvas.pack() 
 top.mainloop()
 
-#"for remaining guesses do a recursive loop of subracting amount of guesses remaining?"
-print(" ____ \n"+"|    |\n"+"     |\n"+"     |\n"+"     |\n"+"     |\n"+"  ___|__\n")
+
 
 

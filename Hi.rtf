@@ -1,15 +1,49 @@
 from tkinter import *
 import random
-import sys
+import tkinter.messagebox
+from tkinter import Button
 
-words = ["Astrophysics", "Orion", "Black Hole", "Sagittarius A", "Radiation", "Friedmann", "Expansion", "Accelerating", "Fornax Cluster", "Virial Theorem", "Einstein Angle", "Olbers Paradox", "Fundamental Plane", "Hubble Law", "Recombination", "Cosmic Microwave Background Radiation", "Plancks Law", "Big Bang", "Hydrostatic Equilibrium", "Gravitational Lensing", "Quasar", "Quark", "Supernovae", "White Dwarf", "Python", "Orbital Period", "Matplotlib"]
-randomWord = random.choice(words)
+easyWords = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination"]
+mediumWords = ["whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod"]
+hardWords = ["friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing",]
+
+def setting():
+   wordChoice = ' '
+   
+   difficulty = input('''Hangman: Select Difficulty Level. Type easy, medium, or hard to begin:''')
+   if difficulty = 'easy':
+      wordChoice = easyWords.random
+      print('You have selected easy! Start guessing now.')
+   if difficulty = 'medium':
+      wordChoice = mediumWords.random
+      print('You have selected medium! Start guessing now.')
+   if difficulty = 'hard':
+      wordChoice = hardWords.random
+      print('You have selected hard! Start guessing now.')
+      
+def game():
+   
+
+
+
 chances = 10
 word = ("_"*len(randomWord))
 
 top = tkinter.Tk()
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
 
+title1 = top.title("Hangman")
+
+topLabel = canvas.create_text((300, 45), text="Hangman: Guess the Word", font = ("arial", 30))
+canvas2 = tkinter.Canvas(top, height = 700, width = 600, bg = "white", relief = RAISED)
+
+def start():
+   canvas2
+startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
+
+
+def game():
+   game
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
 line2 = canvas.create_line(200, 500, 400, 500)
 head = canvas.create_oval(130, 200, 170, 250)
@@ -18,9 +52,15 @@ arm1 = canvas.create_line(120, 315, 150, 275)
 arm2 = canvas.create_line(180, 315, 150, 275)
 leg1 = canvas.create_line(120, 450, 150, 400)
 leg2 = canvas.create_line(180, 450, 150, 400)
+foot1 = canvas.create_line(180, 450, 200, 450)
+foot2 = canvas.create_line(120, 450, 100, 450)
 
+startButton.pack()
+canvas2.pack()
 canvas.pack() 
 top.mainloop()
 
 #"for remaining guesses do a recursive loop of subracting amount of guesses remaining?"
 print(" ____ \n"+"|    |\n"+"     |\n"+"     |\n"+"     |\n"+"     |\n"+"  ___|__\n")
+
+

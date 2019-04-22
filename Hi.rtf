@@ -1,11 +1,26 @@
-import tkinter 
+from tkinter import *
 import random
 import sys
-""
-words = ["Astrophysics", "Orion", "Black Hole", "Sagittarius A", "Radiation", "Friedmann", "Expansion", "Accelerating", "Fornax Cluster", "Virial Theorem", "Einstein Angle", "Olbers Paradox", "Fundamental Plane", "Hubble Law", "Recombination", "Cosmic Microwave Background Radiation", "Plancks Law", "Big Bang", "Hydrostatic Equilibrium", "Gravitational Lensing", "Quasar", "Quark", "Supernovae", "White Dwarf", "Python", "Orbital Period", "Matplotlib"]
-randomize = random.choice(words)
-chances = 10
-word = ("-"*len(randomize))
- 
 
-"for remaining guesses do a recursive loop of subracting amount of guesses remaining?"
+words = ["Astrophysics", "Orion", "Black Hole", "Sagittarius A", "Radiation", "Friedmann", "Expansion", "Accelerating", "Fornax Cluster", "Virial Theorem", "Einstein Angle", "Olbers Paradox", "Fundamental Plane", "Hubble Law", "Recombination", "Cosmic Microwave Background Radiation", "Plancks Law", "Big Bang", "Hydrostatic Equilibrium", "Gravitational Lensing", "Quasar", "Quark", "Supernovae", "White Dwarf", "Python", "Orbital Period", "Matplotlib"]
+randomWord = random.choice(words)
+chances = 10
+word = ("_"*len(randomWord))
+
+top = tkinter.Tk()
+canvas = tkinter.Canvas(top, height = 600, width = 600, bg = "lightcyan", relief = RAISED)
+
+line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
+line2 = canvas.create_line(200, 500, 400, 500)
+head = canvas.create_oval(130, 200, 170, 250)
+body = canvas.create_line(150, 250, 150, 400)
+arm1 = canvas.create_line(120, 315, 150, 275)
+arm2 = canvas.create_line(180, 315, 150, 275)
+leg1 = canvas.create_line(120, 450, 150, 400)
+leg2 = canvas.create_line(180, 450, 150, 400)
+
+canvas.pack() 
+top.mainloop()
+
+#"for remaining guesses do a recursive loop of subracting amount of guesses remaining?"
+print(" ____ \n"+"|    |\n"+"     |\n"+"     |\n"+"     |\n"+"     |\n"+"  ___|__\n")

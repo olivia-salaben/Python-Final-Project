@@ -3,36 +3,11 @@ import random
 import tkinter.messagebox
 from tkinter import Button
 
-''''''''''''
-easyWords = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination"]
-mediumWords = ["whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod"]
-hardWords = ["friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing",]
+words = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination", "whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod","friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing"] 
 
- words = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination", "whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod","friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing"] 
- 
-def setting():
-   wordChoice = ' '
-   
-   difficulty = input('''Hangman: Select Difficulty Level. Type easy, medium, or hard to begin:''')
-   if difficulty = 'easy':
-      wordChoice = easyWords.random
-      print('You have selected easy! Start guessing now.')
-   if difficulty = 'medium':
-      wordChoice = mediumWords.random
-      print('You have selected medium! Start guessing now.')
-   if difficulty = 'hard':
-      wordChoice = hardWords.random
-      print('You have selected hard! Start guessing now.')
-     
-   
+wordChoice = random.choice(words)
+wordSelect = ("-"*len(wordChoice))
 
-
-
-chances = 10
-word = ("_"*len(randomWord))
-
-
-'''''''''''''''
 
 
 top = tkinter.Tk()
@@ -42,23 +17,25 @@ title1 = top.title("Hangman")
 
 topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
 
+
 def game():
    line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
    line2 = canvas.create_line(200, 500, 400, 500)
    label1 = canvas.create_text((300, 50), text = "Guess a Letter:", font = ("arial", 20))
-   E = Entry(canvas)
-   canvas.create_window(300, 100, window = E)
+   guessButton = Button(top, text = "Guess", width = 10, height = 2, bg = "white", fg = "black")
+   shown = canvas.create_text((300, 600), text = wordSelect, font = ("arial", 30))
+   E = Entry(canvas, width = 5)
+   
+   canvas.create_window(300, 90, window = E)
    canvas.update()
    top.mainloop()
-   
-
+    
 def start():
    canvas.delete("all")
    startButton.destroy()
    game()
    
 startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
-
 
 
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
@@ -72,12 +49,7 @@ leg2 = canvas.create_line(180, 450, 150, 400)
 foot1 = canvas.create_line(180, 450, 200, 450)
 foot2 = canvas.create_line(120, 450, 100, 450)
 
-   
 
 startButton.pack()
 canvas.pack() 
 top.mainloop()
-
-
-
-

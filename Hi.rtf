@@ -1,3 +1,6 @@
+
+
+
 from tkinter import *
 import random
 import tkinter.messagebox
@@ -9,6 +12,7 @@ wordChoice = random.choice(words)
 
 wordSelect = ("-"*len(wordChoice))
 
+
 top = tkinter.Tk()
 
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
@@ -16,6 +20,7 @@ canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief
 title1 = top.title("Hangman")
 
 topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
+
 
     
 
@@ -26,6 +31,101 @@ def game():
    guessButton = Button(top, text = "Guess", width = 10, height = 2, bg = "white", fg = "black")
    shown = canvas.create_text((300, 600), text = wordSelect, font = ("arial", 30))
    E = Entry(canvas, width = 5)
+   
+   
+   
+   acceptedInput = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+
+
+   line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
+   line2 = canvas.create_line(200, 500, 400, 500)
+   head = canvas.create_oval(130, 200, 170, 250)
+   body = canvas.create_line(150, 250, 150, 400)
+   arm1 = canvas.create_line(120, 315, 150, 275)
+   arm2 = canvas.create_line(180, 315, 150, 275)
+   leg1 = canvas.create_line(120, 450, 150, 400)
+   leg2 = canvas.create_line(180, 450, 150, 400)
+   foot1 = canvas.create_line(180, 450, 200, 450)
+   foot2 = canvas.create_line(120, 450, 100, 450)
+
+
+   words_to_guess = []
+   for i in range (0, len(wordChoice)):
+      words_to_guess.append(word_guess[i])
+   currently = []
+   for i in words_to_guess:
+      currently.append("-")
+   guess_letters = []
+   guesses = 0
+
+   def graphic(guesses):
+      print("")
+      print("Currently you know: ", end=" ")
+      for i in range(0, len(currently)):
+         print(currently[i], end=" ")
+      print("")
+      print("Attempts:", end=" ")
+      for i in range(0, len(guess_letters)):
+         print(guess_letters[i], end=" ")
+      print("")
+      if guesses == -1:
+         print 
+      elif guesses == 1:
+         head
+      elif guesses == 2:
+         body
+      elif guesses == 3:
+         arm1
+      elif guesses == 4:
+         arm2
+      elif guesses == 5:
+         leg2
+      elif guesses == 6:
+         leg1
+      elif guesses == 7:
+         foot1
+      elif guesses == 8:
+         foot2
+         print ("You Lost")
+      
+   def guess_input():
+      global guesses
+      global currently
+      global words_to_guess
+   
+      while True:
+          user_input = input("Please input your guess (a single letter): ")
+          if user_input in accepted_input:
+              if user_input in guess_letters:
+                   print("You have already inputted this letter before, be more attentive!")
+              else:
+                  guess_letters.append(user_input)
+                  if user_input in word_to_guess:
+                      print("Well done, you guessed the right letter")
+                      for i in range(0, len(word_to_guess)):
+                          if word_to_guess[i] == user_input:
+                              currently[i] = user_input
+                  else:
+                       print("Ops, there is no such letter in our word")
+                       guesses = guesses + 1
+
+          else:
+               print("INPUT ERROR! Please input single letter in range a-z")
+          if guesses > 5: #game over you lost
+               graphic(guesses)
+               break
+          elif "_" in currently: #keep playing
+               graphic(guesses)
+          else: #game over you WON
+               graphic(-1)
+               break
+   def hangman():
+       graphic(guesses)
+       guess_input()
+   if __name__ == "__main__":
+       hangman()
+       print("END!")
    
    canvas.create_window(300, 90, window = E)
    guessButton.pack()

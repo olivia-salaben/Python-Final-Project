@@ -34,7 +34,7 @@ def game():
    
    
    
-   acceptedInput = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+   accepted_input = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
 
@@ -52,7 +52,7 @@ def game():
 
    words_to_guess = []
    for i in range (0, len(wordChoice)):
-      words_to_guess.append(word_guess[i])
+      words_to_guess.append(words_to_guess[i])
    currently = []
    for i in words_to_guess:
       currently.append("-")
@@ -101,10 +101,10 @@ def game():
                    print("You have already inputted this letter before, be more attentive!")
               else:
                   guess_letters.append(user_input)
-                  if user_input in word_to_guess:
+                  if user_input in words_to_guess:
                       print("Well done, you guessed the right letter")
-                      for i in range(0, len(word_to_guess)):
-                          if word_to_guess[i] == user_input:
+                      for i in range(0, len(words_to_guess)):
+                          if words_to_guess[i] == user_input:
                               currently[i] = user_input
                   else:
                        print("Ops, there is no such letter in our word")

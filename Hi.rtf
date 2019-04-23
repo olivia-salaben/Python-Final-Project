@@ -1,43 +1,56 @@
+##### Astronomy Hangman #####
+#By Olivia Salaben and Madeline Sandfrey
 
+#Utilizing Tkinter and Canvas to create a GUI for Hangman
 
-
+#import all necessary packages in order to create GUI
+import tkinter
 from tkinter import *
 import random
 import tkinter.messagebox
 from tkinter import Button
 
+#word bank that our program will randomly choose for each game
 words = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination", "whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod","friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing"] 
 
+#defining how to randmoly select a word
 wordChoice = random.choice(words)
 
+#defining the process that will create the blank spaces for the amount of letters for each random word selected
 wordSelect = ("-"*len(wordChoice))
 
-
+#in order to begin the GUI
 top = tkinter.Tk()
 
+#creating the canvas for the GUI, establishing parameters for the window, such as background color, border type, and size
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
 
+#naming the title of the window
 title1 = top.title("Hangman")
 
+#creating a label that will display the title of the game
 topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
 
 
     
-
+#creating the code for the process of running the game, after the start button is clicked
 def game():
+   #starting off with just the lines that hold the hangman figure up, not any of his body parts
    line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
    line2 = canvas.create_line(200, 500, 400, 500)
    label1 = canvas.create_text((300, 50), text = "Guess a Letter:", font = ("arial", 20))
+   #creating the Guess button that is pushed each time a letter is guessed
    guessButton = Button(top, text = "Guess", width = 10, height = 2, bg = "white", fg = "black")
+   #to create the dashed lines at the bottom that will eventually be filled with the letters of teh word once guesses are made
    shown = canvas.create_text((300, 600), text = wordSelect, font = ("arial", 30))
+   #creating the entry box that users will type in for their letter guess
    E = Entry(canvas, width = 5)
    
-   
-   
+   #defining what characters will be acceptable input for the entry box for users to type in, only letters are acceptable
    accepted_input = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
-
+   #the code for the position of each line that forms the hangman's body
    line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
    line2 = canvas.create_line(200, 500, 400, 500)
    head = canvas.create_oval(130, 200, 170, 250)
@@ -49,7 +62,7 @@ def game():
    foot1 = canvas.create_line(180, 450, 200, 450)
    foot2 = canvas.create_line(120, 450, 100, 450)
 
-
+  #creating
    words_to_guess = []
    for i in range (0, len(wordChoice)):
       words_to_guess.append(words_to_guess[i])
@@ -58,7 +71,8 @@ def game():
       currently.append("-")
    guess_letters = []
    guesses = 0
-
+   
+   #shows what to print/display after a guess is made, whether correct or incorrect
    def graphic(guesses):
       print("")
       print("Currently you know: ", end=" ")
@@ -85,6 +99,7 @@ def game():
          leg1
       elif guesses == 7:
          foot1
+      #if user is incorrect 8 times, then they lose the game
       elif guesses == 8:
          foot2
          print ("You Lost")
@@ -131,15 +146,17 @@ def game():
    guessButton.pack()
    canvas.update()
    top.mainloop()
-    
+   
+#creating the command for the start button to follow    
 def start():
    canvas.delete("all")
    startButton.destroy()
    game()
-   
+
+#creating the start button on the opening screen
 startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
 
-
+#the position of each body part on the hangman
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
 line2 = canvas.create_line(200, 500, 400, 500)
 head = canvas.create_oval(130, 200, 170, 250)
@@ -151,7 +168,7 @@ leg2 = canvas.create_line(180, 450, 150, 400)
 foot1 = canvas.create_line(180, 450, 200, 450)
 foot2 = canvas.create_line(120, 450, 100, 450)
 
-
+#to finish the canvas
 startButton.pack()
 canvas.pack() 
 top.mainloop()

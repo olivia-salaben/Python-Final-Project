@@ -6,17 +6,18 @@ from tkinter import Button
 words = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination", "whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod","friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing"] 
 
 wordChoice = random.choice(words)
+
 wordSelect = ("-"*len(wordChoice))
 
-
-
 top = tkinter.Tk()
+
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
 
 title1 = top.title("Hangman")
 
 topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
 
+    
 
 def game():
    line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
@@ -27,6 +28,7 @@ def game():
    E = Entry(canvas, width = 5)
    
    canvas.create_window(300, 90, window = E)
+   guessButton.pack()
    canvas.update()
    top.mainloop()
     

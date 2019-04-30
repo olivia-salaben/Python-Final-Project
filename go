@@ -1,6 +1,6 @@
 import random
 
-words_list = ['russia', 'china', 'usa', 'canada', 'ghana'] #pre-made list of our words to guess
+words_list = ["orion", "quark", "quasar", "python", "bigbang"]
 accepted_input = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 word_guess = random.choice(words_list)
 word_to_guess = []

@@ -15,10 +15,30 @@ for i in word_to_guess:  # fill in our currently guessed list with "_"
 guess_letters = []
 guesses = 0
 
+def start():
+   canvas.delete("all")
+   startButton.destroy()
+   hangman()
+   
+
+
 top = tkinter.Tk()
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
 line2 = canvas.create_line(200, 500, 400, 500)
+title1 = top.title("Hangman")
+topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
+startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
+line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
+line2 = canvas.create_line(200, 500, 400, 500)
+head = canvas.create_oval(130, 200, 170, 250)
+body = canvas.create_line(150, 250, 150, 400)
+arm1 = canvas.create_line(120, 315, 150, 275)
+arm2 = canvas.create_line(180, 315, 150, 275)
+leg1 = canvas.create_line(120, 450, 150, 400)
+leg2 = canvas.create_line(180, 450, 150, 400)
+foot1 = canvas.create_line(180, 450, 200, 450)
+foot2 = canvas.create_line(120, 450, 100, 450)
 
 def guess_input():
     global guesses
@@ -132,6 +152,6 @@ if __name__ == "__main__":
     hangman()
     print("The End")
     
-    
+startButton.pack()    
 canvas.pack() 
 top.mainloop()

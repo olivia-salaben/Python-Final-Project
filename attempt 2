@@ -1,1 +1,157 @@
-yo
+import tkinter
+from tkinter import *
+import random
+
+words_list = ["orion", "quark", "quasar", "python", "bigbang", "matplotlib", "astrophysics", "accelerating", "radiation", "blackhole", "hubblelaw", "recombination", "whitedwarf", "sagittariusa", "planckslaw", "supernovae", "fornaxcluster", "orbitalperiod","friedmann", "expansion", "virialtheorem", "einsteinangle", "olbersparadox", "fundamentalplane", "hydrostaticequilibrium", "gravitationallensing"] 
+
+accepted_input = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+word_guess = random.choice(words_list)
+word_to_guess = []
+for i in range(0, len(word_guess)):
+    word_to_guess.append(word_guess[i])
+currently = []
+for i in word_to_guess:  # fill in our currently guessed list with "_"
+    currently.append("_")
+guess_letters = []
+guesses = 0
+
+def start():
+   canvas.delete("all")
+   startButton.destroy()
+   hangman()
+   
+def guess_input():
+    global guesses
+    global currently
+    global word_to_guess
+
+    while True:
+        user_input = input("Please input your guess (a single letter): ")
+        if user_input in accepted_input:
+            if user_input in guess_letters:
+                print("Try again")
+            else:
+                guess_letters.append(user_input)
+                if user_input in word_to_guess:
+                    print("Good guess")
+                    for i in range(0, len(word_to_guess)):
+                        if word_to_guess[i] == user_input:
+                            currently[i] = user_input
+                else:
+                    print("Guess a letter")
+                    guesses = guesses + 1
+
+        else:
+            print("INPUT ERROR! Please input single letter in range a-z")
+
+        if guesses > 7: #game over you lost
+            hangman_graphic(guesses)
+            break
+        elif "_" in currently: #keep playing
+            hangman_graphic(guesses)
+        else: #game over you WON
+            hangman_graphic(-1)
+            break
+
+def hangman_graphic(guesses):
+    print("")
+    print("Currently you know: ", end=" ")
+    for i in range(0, len(currently)):
+        print(currently[i], end=" ")
+    print("")
+    print("You have already tried letters:", end=" ")
+    for i in range(0, len(guess_letters)):
+        print(guess_letters[i], end=" ")
+    print("")
+    if guesses == -1: # you won graphic
+        print("You won!")
+    elif guesses == 0:
+        print("Guess")
+       
+    elif guesses == 1:
+        head = canvas.create_oval(130, 200, 170, 250)
+        
+    elif guesses == 2:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        
+    elif guesses == 3:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        arm1 = canvas.create_line(120, 315, 150, 275)
+        
+    elif guesses == 4:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        arm1 = canvas.create_line(120, 315, 150, 275)
+        arm2 = canvas.create_line(180, 315, 150, 275)
+        
+    elif guesses == 5:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        arm1 = canvas.create_line(120, 315, 150, 275)
+        arm2 = canvas.create_line(180, 315, 150, 275)
+        leg2 = canvas.create_line(180, 450, 150, 400)
+        
+    elif guesses == 6:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        arm1 = canvas.create_line(120, 315, 150, 275)
+        arm2 = canvas.create_line(180, 315, 150, 275)
+        leg2 = canvas.create_line(180, 450, 150, 400)
+        leg1 = canvas.create_line(120, 450, 150, 400)
+        
+    elif guesses == 7:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        arm1 = canvas.create_line(120, 315, 150, 275)
+        arm2 = canvas.create_line(180, 315, 150, 275)
+        leg2 = canvas.create_line(180, 450, 150, 400)
+        leg1 = canvas.create_line(120, 450, 150, 400)
+        foot1 = canvas.create_line(180, 450, 200, 450)
+        
+   #if user is incorrect 8 times, then they lose the game
+    elif guesses == 8:
+        head = canvas.create_oval(130, 200, 170, 250)
+        body = canvas.create_line(150, 250, 150, 400)
+        arm1 = canvas.create_line(120, 315, 150, 275)
+        arm2 = canvas.create_line(180, 315, 150, 275)
+        leg2 = canvas.create_line(180, 450, 150, 400)
+        leg1 = canvas.create_line(120, 450, 150, 400)
+        foot1 = canvas.create_line(180, 450, 200, 450)
+        foot2 = canvas.create_line(120, 450, 100, 450)
+        print ("You Lost")
+
+
+def hangman():
+    hangman_graphic(guesses)
+    guess_input()
+
+
+
+top = tkinter.Tk()
+canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
+line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
+line2 = canvas.create_line(200, 500, 400, 500)
+title1 = top.title("Hangman")
+topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
+startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
+line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
+line2 = canvas.create_line(200, 500, 400, 500)
+head = canvas.create_oval(130, 200, 170, 250)
+body = canvas.create_line(150, 250, 150, 400)
+arm1 = canvas.create_line(120, 315, 150, 275)
+arm2 = canvas.create_line(180, 315, 150, 275)
+leg1 = canvas.create_line(120, 450, 150, 400)
+leg2 = canvas.create_line(180, 450, 150, 400)
+foot1 = canvas.create_line(180, 450, 200, 450)
+foot2 = canvas.create_line(120, 450, 100, 450)
+
+
+if __name__ == "__main__":
+    hangman()
+    print("The End")
+    
+startButton.pack()    
+canvas.pack() 
+top.mainloop()

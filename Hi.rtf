@@ -37,7 +37,7 @@ def graphic(guesses):
       print(currently[i], end=" ")
    print("")
    print("Attempts:", end=" ")
-   for i in range(0, len(guess_letters):
+   for i in range(0, len(guess_letters)):
       print(guess_letters[i], end=" ")
    print("")
    if guesses == -1:
@@ -112,14 +112,14 @@ def guess_input():
                print("Incorrect letter")
                guesses = guesses + 1
 
-       else:
+      else:
             print("INPUT ERROR! Please input single letter in range a-z")
-       if guesses > 7: 
+      if guesses > 7: 
             graphic(guesses)
             break
-       elif "-" in currently: 
+      elif "-" in currently: 
             graphic(guesses)
-       else: 
+      else: 
             graphic(-1)
             break
             

@@ -70,7 +70,7 @@ def hangman_graphic(guesses):
     elif guesses == 0:
         line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
         line2 = canvas.create_line(200, 500, 400, 500)
-        print("Guess")
+        print("Guess Again")
        
     elif guesses == 1:
         line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
@@ -139,14 +139,14 @@ def hangman_graphic(guesses):
         foot1 = canvas.create_line(180, 450, 200, 450)
         foot2 = canvas.create_line(120, 450, 100, 450)
         lose = canvas.create_text((300, 45), text="You Lost!", font = ("arial", 30))
-        print ("You Lost")
+        print ("You Lost!")
 
 
 top = tkinter.Tk()
 canvas = tkinter.Canvas(top, height = 700, width = 600, bg = "lightcyan", relief = RAISED)
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
 line2 = canvas.create_line(200, 500, 400, 500)
-title1 = top.title("Hangman")
+title1 = top.title("Astronomy Hangman")
 topLabel = canvas.create_text((300, 45), text="Astronomy Hangman: Guess the Word", font = ("arial", 30))
 startButton = tkinter.Button(top, text = "Start", width = 10, height = 2, bg = "white", fg = "black", command = start)
 line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
@@ -234,7 +234,7 @@ def hangman_graphic(guesses):
     elif guesses == 0:
         line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
         line2 = canvas.create_line(200, 500, 400, 500)
-        print("Guess")
+        print("Guess a letter")
        
     elif guesses == 1:
         line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
@@ -305,7 +305,7 @@ def hangman_graphic(guesses):
         foot1 = canvas.create_line(180, 450, 200, 450)
         foot2 = canvas.create_line(120, 450, 100, 450)
         lose = canvas.create_text((300, 45), text="You Lost!", font = ("arial", 30))
-        print ("You Lost")
+        print ("You Lost!")
 
 
 

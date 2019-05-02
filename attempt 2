@@ -66,7 +66,7 @@ def hangman_graphic(guesses):
     print("")
     if guesses == -1: # you won graphic
         print("You won!")
-        #winner = canvas.create_text((300, 45), text="You Won! Congrats", font = ("arial", 30))
+        winner = canvas.create_text((300, 45), text="You Won! Congrats", font = ("arial", 30))
     elif guesses == 0:
         line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
         line2 = canvas.create_line(200, 500, 400, 500)
@@ -138,7 +138,7 @@ def hangman_graphic(guesses):
         leg1 = canvas.create_line(120, 450, 150, 400)
         foot1 = canvas.create_line(180, 450, 200, 450)
         foot2 = canvas.create_line(120, 450, 100, 450)
-        #lose = canvas.create_text((300, 45), text="You Lost!", font = ("arial", 30))
+        lose = canvas.create_text((300, 45), text="You Lost!", font = ("arial", 30))
         print ("You Lost")
 
 
@@ -230,7 +230,7 @@ def hangman_graphic(guesses):
     print("")
     if guesses == -1: # you won graphic
         print("You won!")
-        #winner = canvas.create_text((300, 45), text="You Won! Congrats", font = ("arial", 30))
+        winner = canvas.create_text((300, 45), text="You Won! Congrats", font = ("arial", 30))
     elif guesses == 0:
         line1 = canvas.create_line(150, 200, 150, 125, 300, 125, 300, 500)
         line2 = canvas.create_line(200, 500, 400, 500)
@@ -304,7 +304,7 @@ def hangman_graphic(guesses):
         leg1 = canvas.create_line(120, 450, 150, 400)
         foot1 = canvas.create_line(180, 450, 200, 450)
         foot2 = canvas.create_line(120, 450, 100, 450)
-        #lose = canvas.create_text((300, 45), text="You Lost!", font = ("arial", 30))
+        lose = canvas.create_text((300, 45), text="You Lost!", font = ("arial", 30))
         print ("You Lost")
 
 

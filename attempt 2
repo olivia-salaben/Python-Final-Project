@@ -16,6 +16,10 @@ for i in word_to_guess:  # fill in our currently guessed list with "_"
 guess_letters = []
 guesses = 0
 
+def hangman():
+    hangman_graphic(guesses)
+    guess_input()
+
 def start():
    canvas.delete("all")
    startButton.destroy()
